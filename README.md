@@ -1,4 +1,4 @@
-# sistematiza-o-
+# sistematizacao
 Projeto A: API REST com Gerenciamento Completo e Persistência de Dados
 
 Etapas de Implementação
