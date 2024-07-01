@@ -20,7 +20,6 @@ Configuração do Banco de Dados
 Configure as credenciais do banco de dados no arquivo application.properties ou application.yml.
 Exemplo de configuração para MySQL:
 properties
-Copy code
 spring.datasource.url=jdbc:mysql://localhost:3306/mgs_db
 spring.datasource.username=root
 spring.datasource.password=senha
@@ -32,8 +31,6 @@ spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
 Definição das Entidades e Repositórios
 Crie a entidade Employee para armazenar as informações dos funcionários.
 Defina o repositório EmployeeRepository que estende JpaRepository.
-java
-Copy code
 @Entity
 public class Employee {
     @Id
@@ -47,15 +44,11 @@ public class Employee {
 
     // Getters and setters
 }
-java
-Copy code
 public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 }
 
 Criação dos Controladores REST
 Implemente os controladores REST para gerenciar as operações CRUD.
-java
-Copy code
 @RestController
 @RequestMapping("/api/employees")
 public class EmployeeController {
@@ -93,16 +86,12 @@ public class EmployeeController {
 
 Tratamento de Exceções
 Crie uma classe ResourceNotFoundException e um manipulador de exceções globais para lidar com erros.
-java
-Copy code
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class ResourceNotFoundException extends RuntimeException {
     public ResourceNotFoundException(String message) {
         super(message);
     }
 }
-java
-Copy code
 @ControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler(ResourceNotFoundException.class)
